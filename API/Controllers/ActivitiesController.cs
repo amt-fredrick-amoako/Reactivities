@@ -8,9 +8,9 @@ namespace API.Controllers
     {
 
         [HttpGet]
-        public async Task<ActionResult<List<Activity>>> Get()
+        public async Task<ActionResult<List<Activity>>> Get(CancellationToken cancellationToken)
         {
-            return await Mediator.Send(new List.Query());
+            return await Mediator.Send(new List.Query(), cancellationToken);
         }
 
         [HttpGet("{id}")]
